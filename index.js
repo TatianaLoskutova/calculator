@@ -3,48 +3,46 @@ let buttonMinus = document.getElementById('buttonMinus');
 let buttonMultiply = document.getElementById('buttonMultiply');
 let buttonDivide = document.getElementById('buttonDivide');
 
+let input1 = document.getElementById('number1');
+let input2 = document.getElementById('number2');
+
+function getNumber1() {
+    return Number(input1.value);
+}
+
+function getNumber2() {
+    return Number(input2.value);
+}
+
+function makeOperation(operationCode) {
+    if (operationCode === '+') {
+        var result = getNumber1() + getNumber2();
+    } else if (operationCode === '-') {
+        var result = getNumber1() - getNumber2();
+    } else if (operationCode === '*') {
+        var result = getNumber1() * getNumber2();
+    } else if (operationCode === '/') {
+        var result = getNumber1() / getNumber2();
+    } else {
+        window.alert('operation is unknown')
+    }
+    window.alert(result);
+}
+
 function onButtonPlusClick () {
-    let input1 = document.getElementById('number1');
-    let input2 = document.getElementById('number2');
-
-    let number1 = Number(input1.value);
-    let number2 = Number(input2.value);
-
-    let summ = number1 + number2;
-    window.alert(summ);
+    makeOperation('+');
 }
 
 function onButtonMinusClick () {
-    let input1 = document.getElementById('number1');
-    let input2 = document.getElementById('number2');
-
-    let number1 = input1.value;
-    let number2 = input2.value;
-
-    let difference = number1 - number2;
-    window.alert(difference);
+    makeOperation('-');
 }
 
 function onButtonMultiplyClick () {
-    let input1 = document.getElementById('number1');
-    let input2 = document.getElementById('number2');
-
-    let number1 = input1.value;
-    let number2 = input2.value;
-
-    let product = number1 * number2;
-    window.alert(product);
+    makeOperation('*');
 }
 
 function onButtonDivideClick () {
-    let input1 = document.getElementById('number1');
-    let input2 = document.getElementById('number2');
-
-    let number1 = input1.value;
-    let number2 = input2.value;
-
-    let quotient = number1 / number2;
-    window.alert(quotient);
+    makeOperation('/');
 }
 
 buttonPlus.addEventListener('click', onButtonPlusClick);
